@@ -41,9 +41,9 @@ def train(net, X, loss_func, r, epoch = 10, lr1 = 1e-3, lr2 = 1e-3, random_init=
     else:
         factors_tl = non_negative_parafac(np.asarray(X), rank=r)
     
-    A = Variable(torch.from_numpy(factors_tl[0]), requires_grad=True)
-    B = Variable(torch.from_numpy(factors_tl[1]), requires_grad=True)
-    C = Variable(torch.from_numpy(factors_tl[2]), requires_grad=True)
+    A = Variable(torch.from_numpy(np.array(factors_tl[0])), requires_grad=True)
+    B = Variable(torch.from_numpy(np.array(factors_tl[1])), requires_grad=True)
+    C = Variable(torch.from_numpy(np.array(factors_tl[2])), requires_grad=True)
     
     
     configs = [[{} for _ in range(3)] for i in range(net.depth-1)]
